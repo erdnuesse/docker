@@ -33,10 +33,6 @@ RUN mkdir -p /var/lib/php/session && \
 RUN rm -rf /etc/nginx/conf.d/* && \
 	rm -rf /var/cache/*
 
-# forward request and error logs to docker log collector
-RUN ln -sf /dev/stdout /var/log/nginx/access.log
-RUN ln -sf /dev/stderr /var/log/nginx/error.log
-
 # Configurations files
 ADD conf/default.conf /etc/nginx/conf.d/default.conf
 ADD conf/nginx.conf /etc/nginx/nginx.conf
